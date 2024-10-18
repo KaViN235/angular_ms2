@@ -1,0 +1,99 @@
+.course-list-container {
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+}
+
+h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+    font-family: 'Arial', sans-serif;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Arial', sans-serif;
+}
+
+thead {
+    background-color: #42ae50;
+    color: white;
+}
+
+th,
+td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+input[type="radio"] {
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+button {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+button:not(:disabled):hover {
+    background-color: #0056b3;
+}
+
+.message {
+    position: fixed; /* Position fixed to make it center in viewport */
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Adjust for exact centering */
+    background-color: #d81818; /* Green background for success */
+    color: white; /* White text */
+    padding: 20px 40px; /* More padding for a bigger box */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    z-index: 1000; /* Ensure it appears above other elements */
+    font-size: 1.2em; /* Increase font size */
+    animation: fadeInOut 5s forwards; /* Fade in and out */
+    text-align: center; /* Center the text */
+    max-width: 80%; /* Limit the box width */
+}
+
+
+/* Keyframes for fade-in and fade-out effect */
+@keyframes fadeInOut {
+    0% {
+        opacity: 0; /* Start fully transparent */
+    }
+    10% {
+        opacity: 1; /* Fully visible */
+    }
+    90% {
+        opacity: 1; /* Remain fully visible */
+    }
+    100% {
+        opacity: 0; /* Fade out to transparent */
+    }
+}
+

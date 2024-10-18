@@ -1,0 +1,10 @@
+<div *ngIf = "student" class="student-profile-container">
+    <form (ngSubmit)="SubmitUpdate()" class="profile-form">
+        <table>
+            <tr>
+                <td><label>Name:</label></td>
+                <td><input type="text" id="id" [(ngModel)]= "student.id" name="id"/></td>
+            </tr>
+        </table>
+    </form>
+</div>

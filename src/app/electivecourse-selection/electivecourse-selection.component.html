@@ -1,0 +1,27 @@
+<div *ngIf='courses && courses.length > 0' class="course-list-container">
+    <h2>Course List </h2>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Department</th>
+                <th>Course Type</th>
+                <th>Select</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let course of courses">
+                <td>{{course.id}}</td>
+                <td>{{course.name}}</td>
+                <td>{{course.department}}</td>
+                <td>{{course.type}}</td>
+                <td><input type="radio" name="courseSelection" (click)="OnCourseSelect(course)" /></td>
+            </tr>
+        </tbody>
+    </table>
+    <button (click)="submitSelectedCourse()" >Submit</button>
+    <div *ngIf="Message" class ="message" >
+        {{Message}}
+    </div>
+</div>

@@ -1,0 +1,44 @@
+<div *ngIf="student" class="student-profile-container">
+    <h2>Student Profile</h2>
+    <table class="profile-table">
+        <tr>
+            <td><label>Name</label></td>
+            <td>{{student.name}}</td>
+        </tr>
+        <tr>
+            <td><label>Roll no:</label></td>
+            <td>{{student.studentId}}</td>
+        </tr>
+        <tr>
+            <td><label>Mail id:</label></td>
+            <td>{{student.email}}</td>
+        </tr>
+        <tr>
+            <td><label>Department:</label></td>
+            <td>{{student.department}}</td>
+        </tr>
+        <tr>
+            <td><label>Year Of Study:</label></td>
+            <td>{{student.yearOfStudy}}</td>
+        </tr>
+        <tr>
+            <td><label>Date Of Birth:</label></td>
+            <td>{{student.birthdate}}</td>
+        </tr>
+        <tr>
+            <td><label>Address:</label></td>
+            <td>{{student.address}}</td>
+        </tr>
+        <tr>
+            <td><label>Phone number:</label></td>
+            <td>{{ student.phone_number }}</td>
+        </tr>
+    </table>
+
+    <button [routerLink]="['/courses',student.id]" class="btn course-button">View Your Courses</button>
+    <button  [disabled]="isRegistered" [routerLink]="['/select-elective']"
+        [queryParams]="{studentId : student.id , yearOfStudy : student.yearOfStudy}" 
+        [ngClass]="{'disabled-btn': isRegistered}" class="btn elective-button">Select your
+        Elective</button>  
+</div>
+<router-outlet />
