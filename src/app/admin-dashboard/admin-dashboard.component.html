@@ -1,0 +1,135 @@
+<div class="container">
+    <div class="humburger" (click)="toggleSidebar()">
+        &#9776;
+    </div>
+    <div class="sidebar" [class.open]="isSidebarOpen">
+        <ul>
+            <li (click)="selectOption('create-course')">Create Course</li>
+            <li (click)="selectOption('view-courses')">View Courses</li>
+            <li (click)="selectOption('create-student')">Create Student</li>
+            <li (click)="selectOption('view-students')">View Students</li>
+        </ul>
+    </div>
+
+    <div class="content">
+        <!-- Create Course Form -->
+        <div *ngIf="selectedOption === 'create-course'" class="create-course">
+            <h3>Create New Course</h3>
+            <form (ngSubmit)="createCourse()">
+                <div>
+                    <label for="courseName">Course Name:</label>
+                    <input id="courseName" [(ngModel)]="newCourse.name" name="courseName" required>
+                </div>
+                <div>
+                    <label for="courseType">Course Type:</label>
+                    <select id="courseType" [(ngModel)]="newCourse.type" name="courseType" required>
+                        <option value='Normal'>Normal</option>
+                        <option value='Elective'>Elective</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="yearOfStudy">Year of Study:</label>
+                    <input id="yearOfStudy" [(ngModel)]="newCourse.yearOfStudy" name="yearOfStudy" type="number"
+                        required min="1" max="4">
+                </div>
+                <div>
+                    <label for="courseDepartment">Department:</label>
+                    <select id="courseDepartment" [(ngModel)]="newCourse.department" name="courseDepartment" required>
+                        <option value="" disabled>Select Department</option>
+                        <option value="IT">IT</option>
+                        <option value="CSE">CSE</option>
+                        <option value="ECE">ECE</option>
+                    </select>
+                </div>
+                <button type="submit">Create Course</button>
+            </form>
+        </div>
+
+        <!-- Display All Courses -->
+        <div *ngIf="selectedOption === 'view-courses'" class="view-courses">
+            <h3>All Courses</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Type</th>
+                        <th>Year of Study</th>
+                        <th>Department</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let course of allCourses">
+                        <td>{{ course.id }}</td>
+                        <td>{{ course.name }}</td>
+                        <td>{{ course.type }}</td>
+                        <td>{{ course.yearOfStudy }}</td>
+                        <td>{{ course.department }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <!-- Create Student Form -->
+        <div *ngIf="selectedOption === 'create-student'" class="create-student">
+            <h3>Create New Student</h3>
+            <form (ngSubmit)="createStudent()">
+                <div>
+                    <label for="studentName">Name:</label>
+                    <input id="studentName" [(ngModel)]="newStudent.name" name="studentName" required>
+                </div>
+                <div>
+                    <label for="studentBirthdate">Birthdate:</label>
+                    <input id="studentBirthdate" [(ngModel)]="newStudent.birthdate" name="studentBirthdate" type="text"
+                        required>
+                </div>
+                <div>
+                    <label for="studentAddress">Address:</label>
+                    <input id="studentAddress" [(ngModel)]="newStudent.address" name="studentAddress" required>
+                </div>
+                <div>
+                    <label for="studentPhone">Phone Number:</label>
+                    <input id="studentPhone" [(ngModel)]="newStudent.phone_number" name="studentPhone" required>
+                </div>
+                <div>
+                    <label for="studentDepartment">Department:</label>
+                    <input id="studentDepartment" [(ngModel)]="newStudent.department" name="studentDepartment" required>
+                </div>
+                <div>
+                    <label for="dateOfJoining">Date of Joining:</label>
+                    <input id="dateOfJoining" [(ngModel)]="newStudent.dateOfJoining" name="dateOfJoining" type="text"
+                        required>
+                </div>
+                <button type="submit">Create Student</button>
+            </form>
+        </div>
+
+        <!-- Search Student by ID -->
+        <div *ngIf="selectedOption === 'view-students'" class="view-students">
+            <h3>All Students</h3>
+            <thead>
+                <tr>
+                    <td>Name</td>
+                    <td>Roll No</td>
+                    <td>Mail Id</td>
+                    <td>Department</td>
+                    <td>Year Of Study</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let student of allStudents">
+                    <td>{{student.name}}</td>
+                    <td>{{student.studentId}}</td>
+                    <td>{{student.email}}</td>
+                    <td>{{student.department}}</td>
+                    <td>{{student.yearOfStudy}}</td>
+
+                </tr>
+            </tbody>
+        </div>
+    </div>
+
+
+    <!-- 
+    <h3>Search Student</h3>
+    <input [(ngModel)]="studentIdForSearch" placeholder="Enter Student ID" type="number">
+    <button (click)="searchStudent()">Search</button> -->

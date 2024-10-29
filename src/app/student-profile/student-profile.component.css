@@ -1,6 +1,6 @@
 .student-profile-container {
     width: 50%;
-    margin: auto;
+    margin: 50px auto;
     padding: 20px;
     background-color: #f9f9f9;
     border-radius: 10px;
@@ -34,7 +34,7 @@
 }
 
 
-.btn {
+:host ::ng-deep .btn {
     margin: 5px;
     padding: 10px 20px;
     font-size: 20px;
@@ -43,6 +43,10 @@
     border-radius: 5px;
     cursor: pointer;
     border-radius: 80px;
+}
+
+:host ::ng-deep .btn:hover{
+    transform: scale(1.05);
 }
 
 .course-button:hover {
@@ -55,12 +59,20 @@
     transform: scale(1.05);
 }
 
+.update-button:hover {
+    background-color: #ff2020;
+    transform: scale(1.05);
+}
+
 
 .course-button {
     background-color: #826fd4;
 }
 .elective-button {
     background-color: #60da6e;
+}
+.update-button{
+    background-color: rgb(221, 54, 54);
 }
 
 .disabled-btn:hover{

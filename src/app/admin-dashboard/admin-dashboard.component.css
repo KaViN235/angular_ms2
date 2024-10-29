@@ -1,0 +1,184 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+}
+
+/* Container for Sidebar and Content */
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+/* Hamburger Menu for Small Screens */
+.humburger {
+    font-size: 30px;
+    cursor: pointer;
+    padding: 20px;
+ 
+    color: rgb(31, 28, 28);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1001;
+    /* display: none; */
+}
+
+/* Sidebar */
+.sidebar {
+    background-color: #84c1d9;
+    color: white;
+    width: 200px;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+    z-index: 1000;
+}
+.sidebar.open + .content {
+    margin-left: 250px; /* Push content to the right when sidebar is open */
+  }
+.sidebar.open {
+    transform: translateX(0);
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 50px;
+}
+
+.sidebar ul li {
+    padding: 15px;
+    cursor: pointer;
+    border-bottom: 1px solid #fff8f8;
+}
+
+.sidebar ul li:hover {
+    background-color: #555;
+}
+
+/* Content Area */
+.content {
+    flex: 1;
+    margin-left: 200px;
+    padding: 108px;
+    background-color: #fff;
+    transition: margin-left 0.3s ease-in-out;
+    
+}
+
+ h3 {
+    margin-top: 0;
+    text-align: center;
+    background-color: #f7f7f7;
+
+}
+
+/* Sidebar and Content Responsive Design */
+@media screen and (max-width: 768px) {
+    .humburger {
+        display: block;
+    }
+
+    .sidebar {
+        width: 200px;
+    }
+
+    .content {
+        margin-left: 0;
+    }
+
+    .sidebar.open ~ .content {
+        margin-left: 200px;
+    }
+}
+
+form {
+    max-width: 400px;
+    margin: 0 auto;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+form div {
+    margin-bottom: 15px;
+}
+
+form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+form input, form select {
+    width: 50%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+form button {
+    width: 100%;
+    font-size: 16px;
+    padding: 10px;
+    background-color: #d43737;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #d60b0b;
+}
+
+/* Tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    position: relative;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+}
+
+thead {
+    background-color: #a398b7;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Mobile Responsive for Tables */
+@media screen and (max-width: 768px) {
+    table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+} 
+
+.create-course,.create-student{
+    max-width: 700px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #f7f7f7;
+    border-radius: 50px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+

@@ -16,12 +16,21 @@ export class StudentService {
 
   constructor(private http: HttpClient) { }
 
+
+  getAllStudents(): Observable<Student[]> {
+    return this.http.get<Student[]>(`${this.studentUrl}/getall`);
+  }
+  
   getStudentById(studentId: number): Observable<Student> {
     return this.http.get<Student>(`${this.studentUrl}/get/${studentId}`);
   }
 
+  createStudent(student: Studentwrapper): Observable<Student> {
+    return this.http.post<Student>(`${this.studentUrl}/create`, student);
+  }
+
   updateStudent(studentId: number, student: Student): Observable<any> {
-    return this.http.put(`${this.studentUrl}/update/${studentId}`, student)
+    return this.http.put(`${this.studentUrl}/update/${studentId}`, student, { responseType: 'text' })
   }
 
   getCoursesByStudentId(studentId: number): Observable<Course[]> {
@@ -35,7 +44,7 @@ export class StudentService {
   submitCourseSelection(courseResponse: CourseResponse): Observable<any> {
     return this.http.post(`${this.studentUrl}/submit`, courseResponse, { responseType: 'text' });
   }
-  checkCourseSelection(courseIds : number[], yearOfStudy: number) : Observable < any > {
+  checkCourseSelection(courseIds: number[], yearOfStudy: number): Observable<any> {
     return this.http.post(`${this.studentUrl}/check/e-course/${yearOfStudy}`, courseIds);
   }
 }

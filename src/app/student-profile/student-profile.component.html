@@ -35,10 +35,10 @@
         </tr>
     </table>
 
-    <button [routerLink]="['/courses',student.id]" class="btn course-button">View Your Courses</button>
-    <button  [disabled]="isRegistered" [routerLink]="['/select-elective']"
-        [queryParams]="{studentId : student.id , yearOfStudy : student.yearOfStudy}" 
-        [ngClass]="{'disabled-btn': isRegistered}" class="btn elective-button">Select your
-        Elective</button>  
+    <button [routerLink]="['/courses',student.id]" class="btn course-button">View Courses</button>
+    <button [disabled]="isRegistered" [routerLink]="['/select-elective']"
+        [queryParams]="{studentId : student.id , yearOfStudy : student.yearOfStudy}"
+        [ngClass]="{'disabled-btn': isRegistered}" class="btn elective-button">Select Elective</button>
+    <button [routerLink]="['/update-student',student.id]" class="btn update-button">Update Profile</button>
 </div>
 <router-outlet />

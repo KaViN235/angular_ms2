@@ -1,10 +1,43 @@
-<div *ngIf = "student" class="student-profile-container">
-    <form (ngSubmit)="SubmitUpdate()" class="profile-form">
-        <table>
+<div *ngIf="student" class="student-profile-container">
+    <h2>Update Student Profile</h2>
+    <form (ngSubmit)="updateSubmit()" class="profile-form">
+        <table class="profile-table">
             <tr>
-                <td><label>Name:</label></td>
-                <td><input type="text" id="id" [(ngModel)]= "student.id" name="id"/></td>
+                <td><label for="name">Name:</label></td>
+                <td><input type="text" id="name" [(ngModel)]="student.name" name="name" required /></td>
+            </tr>
+            <tr>
+                <td><label for="studentId">Roll No:</label></td>
+                <td><input type="text" id="studentId" [(ngModel)]="student.studentId" name="studentId" disabled required /></td>
+            </tr>
+            <tr>
+                <td><label for="email">Mail ID:</label></td>
+                <td><input type="email" id="email" [(ngModel)]="student.email" name="email" disabled required /></td>
+            </tr>
+            <tr>
+                <td><label for="department">Department:</label></td>
+                <td><input type="text" id="department" [(ngModel)]="student.department" name="department" disabled required /></td>
+            </tr>
+            <tr>
+                <td><label for="yearOfStudy">Year of Study:</label></td>
+                <td><input type="number" id="yearOfStudy" [(ngModel)]="student.yearOfStudy" name="yearOfStudy" disabled required /></td>
+            </tr>
+            <tr>
+                <td><label for="birthdate">Date of Birth:</label></td>
+                <td><input type="text" id="birthdate" [(ngModel)]="student.birthdate" name="birthdate" disabled  required /></td>
+            </tr>
+            <tr>
+                <td><label for="address">Address:</label></td>
+                <td><input type="text" id="address" [(ngModel)]="student.address" name="address" required /></td>
+            </tr>
+            <tr>
+                <td><label for="phone_number">Phone Number:</label></td>
+                <td><input type="tel" id="phone_number" [(ngModel)]="student.phone_number" name="phone_number" required /></td>
             </tr>
         </table>
+
+        <button type="submit" class="btn update-button">Update Student</button>
     </form>
 </div>
+
+<router-outlet></router-outlet>

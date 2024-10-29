@@ -37,6 +37,7 @@ export class StudentProfileComponent implements OnInit {
   loadStudentDetail(studentId: number): void {
     this.studentService.getStudentById(studentId).subscribe(student => {
       this.student = student;
+      console.log(this.student)
       this.checkElective(this.student!.courseIds, this.student!.yearOfStudy);
     })
   }
